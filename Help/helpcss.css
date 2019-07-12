@@ -202,4 +202,9 @@ a {
   text-decoration: none;
   color:rgb(58, 70, 58);
   }
-  
+  .centerimg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+  }
