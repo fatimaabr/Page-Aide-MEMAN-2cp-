@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<title>Mémoire Virtuelle</title>
+<link rel="shortcut icon" href="favicon.png" type="image/png" >
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="helpcss.css">
+</head>
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="accueil.html" class="w3-bar-item w3-button w3-theme-l1" >Help</a>
+  </div>
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Menu</b></h4>
+  
+  <a class="w3-bar-item w3-button w3-hover-black" href="accueil.html">Acceuil</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="Doc.html">Documentation </a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="GuideD'util.html">Guide d'utilisation </a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="Astuces&Raccourcis.html">Astuces et Raccourcis </a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="Tutoriels.html">Tutoriels</a>
+  
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+
+<div class="w3-main" style="margin-left:250px">
+   
+  <div class="w3-row w3-padding-64"> 
+    <div class="w3-twothird w3-container">
+      <div id="haut">
+          <h1 class="w3-text-teal">Gestion de la memoire</h1> 
+      </div>
+         
+      
+         
+       
+       <div id="mv">
+          <h2> La Mémoire Virtuelle </h2>
+          <p>
+              La  mémoire virtuelle est une technique qui permet d’exécuter des programmes dont la taille excède la taille de la mémoire réelle,
+              avec des techniques adéquates(citée ci-après) .Sa taille peut être très supérieure à celle de la mémoire physique ou réelle. 
+              Considérons un ensemble de programmes s’exécutant « simultanément » sur un ordinateur quelconque. La mémoire totale requise par 
+              l’ensemble des programmes peut être bien plus grande que la quantité de mémoire physique disponible sur la machine, 
+              mais seule une fraction de cette mémoire est utilisée de manière active à chaque instant donné. <strong>La mémoire principale n’a donc besoin
+                  de contenir que les parties actives des programmes. </strong> 
+          </p>
+          
+          <a href="http://zupimages.net/viewer.php?id=19/19/nzsz.png"><img src="https://zupimages.net/up/19/19/nzsz.png" class="center" alt=""  height="35%" width="35%"/></a>
+          <p>
+          En général, la mémoire virtuelle et la mémoire physique sont structurées en unités d’allocations (pages pour la mémoire virtuelle et cases pour la mémoire physique).
+           La taille d’une page est égale à celle d’une case. Lorsqu’un processus est en cours d’exécution, seule une partie de son espace d’adressage est en mémoire.
+           Les adresses virtuelles référencées par l’instruction en cours doivent être traduites en adresses physiques.
+           Cette conversion d’adresse est effectuée par des circuits matériels de gestion. Si cette adresse correspond à une adresse en
+           mémoire physique, on transmet sur le bus l’adresse réelle, sinon il se produit <strong>un défaut de page.</strong> <br/> <br/>
+    
+           Par exemple, si la mémoire physique est de <strong>32 Ko </strong> et l’adressage est codé sur <strong>16 bits</strong> , l’espace d’adressage logique peut atteindre la taille <strong> (2^16)</strong>  
+           soit <strong> 64 Ko</strong>. L’espace d’adressage est structuré en un ensemble d’unités appelées pages ou segments, qui peuvent être chargées séparément
+           en mémoire.
+          </p>
+        
+         
+        <a href="http://zupimages.net/viewer.php?id=19/19/epjd.gif"><img src="https://zupimages.net/up/19/19/epjd.gif" alt="" /></a> <br/>
+        <p> </br></p>
+
+      </div>
+      <div id="pg">
+            <h2> <font color=#2E8B57 >La pagination</font>  </h2>
+            <h4>principe de base :</h4>
+            <p>
+               ►    La mémoire physique est divisée en petites unités appelées cases de pages <br/>
+               ►    La mémoire virtuelle est divisée en unités de même taille, appelées pages <br/>
+               ►    Lorsqu’un programme tente d’accéder à une page dans la mémoire virtuelle, le MMU (memory management unit) fait 
+                     correspondre celle-ci au case de page correspondante, dans la mémoire physique. <br/>
+            </p>
+            
+               <a href="http://zupimages.net/viewer.php?id=19/19/g3b6.jpg"><img src="https://zupimages.net/up/19/19/g3b6.jpg" alt="" /></a>
+         
+            <p>Lorsque le processus dont l’espace virtuel est illustré tente d’accéder à l’adresse virtuelle 0, il fait référence à la page 0; celle-ci correspond au cadre de page 2, dans la mémoire physique, soit celui aux adresses entre 8 Ko et 12 Ko.
+               On conserve la correspondance entre les pages et les cases de pages dans une table appelée table des pages (« page table »).
+               Dans la plupart des OS modernes, la mémoire virtuelle et la mémoire physique sont divisées logiquement en pages de quelques kilo-octets (1, 2 ou 4 ko généralement). Dans la plupart des ordinateurs, la dimension de la page est fixée à 4 k.
+               La correspondance de taille est donc parfaite puisque la mémoire virtuelle et la mémoire physique ont des pages de dimension identique.</p>
+               
+             </div>
+           <div id="tb">
+            <h3> <font color=#2E8B57 >La table des pages</font>  </h3>
+             <p>La table des pages est la structure de données utilisée pour stocker les correspondances entre adresses virtuelles et adresses physiques. <br/>
+               <a href="http://zupimages.net/viewer.php?id=19/19/4ypj.png"><img src="https://zupimages.net/up/19/19/4ypj.png" class="center" alt="" /></a>
+                 Chaque entrée de la Table de pages est composée de plusieurs champs, notamment : <br/>
+                  1. Le bit de présence. <br/>
+                  2. Le bit de référence (R). <br/>
+                  3. Les bits de protection.<br/>
+                  4. Le bit de modification (M).<br/>
+                  5. Le numéro de case correspondant à la page. <br/> <br/>
+              </p>
+              <p> 
+                ► L’adresse générée par la CPU est divisée en 2 parties: <br/>
+                 1. <strong> Numéro de page </strong>(Page number) p: Indice de la table de pages laquelle contient l’adresse de base pour chaque page.<br/>
+                 2. <strong>Déplacement dans la page</strong>  (Offset) d: Combiné avec l’adresse de base définit l’adresse physique qui est envoyée à l’unité de mémoire.<br/>
+          ► Le rôle d’une table de pages est de faire correspondre des pages virtuelles à des cadres de pages.<br/>
+          ► Mathématiquement, une table des pages est une fonction, qui a comme argument le numéro de la page virtuelle et comme résultat le numéro du cadre physique.</p>
+      
+         </div>
+        </div>
+      </div>
+         <p> </br></p>
+         <p> </br></p>
+         <p> </br></p>
+ 
+
+  <!-- Pagination 
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a class="w3-button w3-black" href="#">1</a>
+      <a class="w3-button w3-hover-black" href="#">2</a>
+      <a class="w3-button w3-hover-black" href="#">3</a>
+      <a class="w3-button w3-hover-black" href="#">4</a>
+      <a class="w3-button w3-hover-black" href="#">5</a>
+      <a class="w3-button w3-hover-black" href="#">»</a>
+    </div>
+  </div>-->
+
+  <!-- Footer -->
+   <!-- Site foote r -->
+   <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <h6 class="txt">About</h6>
+          <p class="txt"> <i> Simulateur visuelle des techniques de la gestion de la mémoire centrale par un système d’exploitation. </i></p>
+        </div>
+        <h4 class="txt">ECOLE NATIONALE SUPERIEURE D'INFORMATIQUE (ESI)-OUED-ESMAR-ALGER-ALGERIE</h4>
+         
+      </div>
+      <hr>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+        <p class="copyright-text" align ="center">Copyright &copy; 2019 All Rights Reserved 
+   
+          </p>
+        </div>
+
+        
+      </div>
+    </div>
+</footer>
+
+
+<!-- END MAIN -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>
